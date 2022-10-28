@@ -3,9 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "open http://localhost:3000 && next dev",
     "build": "next build",
     "start": "next start",
+    "serve": "open http://localhost:3000 && next start",
     "lint": "next lint"
   },
   "dependencies": {
