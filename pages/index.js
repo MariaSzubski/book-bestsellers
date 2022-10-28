@@ -26,7 +26,7 @@ const Home = ({ copyright, results }) => {
 
 async function getStaticProps() {
   // runs on server only, at build time
-  const URL = `https://api.nytimes.com/svc/books/v3/lists/overview.json?api-key=${process.env.API_KEY}`
+  const URL = `https://api.nytimes.com/svc/books/v3/lists/overview.json?api-key=${process.env.NYT_API_KEY}`
   const response = await fetch(URL)
   const data = await response.json()
 
