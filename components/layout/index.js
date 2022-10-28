@@ -4,7 +4,7 @@ import Meta from "./meta"
 
 import styles from "./styles.module.scss"
 
-const Layout = ({ children }) => (
+const Layout = ({ children, copyright }) => (
   <>
     <Meta />
     <div className={styles.container}>
@@ -12,7 +12,7 @@ const Layout = ({ children }) => (
         <Header />
         {children}
       </main>
-      <Footer />
+      <Footer copyright={copyright} />
     </div>
   </>
 )

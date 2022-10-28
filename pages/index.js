@@ -1,22 +1,44 @@
+import CategoryCard from "../components/category-card"
 import Layout from "../components/layout"
 
 import styles from "../styles/pages/home.module.scss"
 
-const Home = () => {
+const Home = ({ copyright, results }) => {
   return (
-    <Layout>
-      <p className={styles.description}>
-        <code className={styles.code}>NYT Books API</code>
-      </p>
+    <Layout copyright={copyright}>
+      <h2>
+        <code className={styles.code}>Bestsellers for the week of: {results.bestsellers_date}</code>
+      </h2>
+      <h3>
+        <em>Last Updated: {results.published_date}</em>
+      </h3>
 
       <div className={styles.grid}>
-        <a href="" className={styles.card}>
-          <h2>Category &rarr;</h2>
-          <p>Label</p>
-        </a>
+        {results.lists.map(c => (
+          <CategoryCard content={c} key={c.list_name_encoded} />
+        ))}
       </div>
     </Layout>
   )
 }
 
+// ---------------------------------- | Data
+
+async function getStaticProps() {
+  // runs on server only, at build time
+  const URL = `https://api.nytimes.com/svc/books/v3/lists/overview.json?api-key=${process.env.API_KEY}`
+  const response = await fetch(URL)
+  const data = await response.json()
+
+  return {
+    props: {
+      copyright: data.copyright,
+      results: data.results,
+    },
+  }
+}
+
+// ---------------------------------- | Exports
+
+export { getStaticProps }
 export default Home

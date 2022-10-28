@@ -1,17 +1,16 @@
 import styles from "./styles.module.scss"
-const Footer = () => (
+const Footer = ({ copyright }) => (
   <footer className={styles.footer}>
     <div>
       <small>
         Site &copy; 2022{" "}
-        <a href="https://mariaszubski.com" target="_blank">
+        <a href="https://mariaszubski.com" target="_blank" rel="noreferrer">
           Maria Szubski Digital, LLC
         </a>
       </small>
     </div>
     <div>
-      {" "}
-      <small>NYT Data Copyright TO BE ADDED</small>
+      <small>Data {copyright}</small>
     </div>
   </footer>
 )
