@@ -4,13 +4,16 @@ import Layout from "../components/layout"
 import styles from "../styles/pages/home.module.scss"
 
 const Home = ({ copyright, results }) => {
+  const formatDate = date => new Date(date).toLocaleDateString("en-US", { dateStyle: "medium" })
   return (
     <Layout copyright={copyright}>
       <h2>
-        <code className={styles.code}>Bestsellers for the week of: {results.bestsellers_date}</code>
+        <code className={styles.code}>
+          Bestsellers for the week of: {formatDate(results.bestsellers_date)}
+        </code>
       </h2>
       <h3>
-        <em>Last Updated: {results.published_date}</em>
+        <em>List Publication Date: {formatDate(results.published_date)}</em>
       </h3>
 
       <div className={styles.grid}>
