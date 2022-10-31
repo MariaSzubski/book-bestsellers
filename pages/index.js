@@ -2,6 +2,7 @@ import CategoryCard from "../components/category-card"
 import Layout from "../components/layout"
 
 import styles from "../styles/pages/home.module.scss"
+import { api } from "../utilities"
 
 const Home = ({ copyright, results }) => {
   const formatDate = date => new Date(date).toLocaleDateString("en-US", { dateStyle: "medium" })
@@ -29,10 +30,9 @@ const Home = ({ copyright, results }) => {
 
 async function getStaticProps() {
   // runs on server only, at build time
-  const URL = `https://api.nytimes.com/svc/books/v3/lists/overview.json?api-key=${process.env.NYT_API_KEY}`
-  const response = await fetch(URL)
-  const data = await response.json()
-
+  const data = await api(
+    `https://api.nytimes.com/svc/books/v3/lists/overview.json?api-key=${process.env.NYT_API_KEY}`
+  )
   return {
     props: {
       copyright: data.copyright,

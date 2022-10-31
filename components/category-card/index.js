@@ -4,7 +4,7 @@ const CategoryCard = ({ content }) => {
   const top_book = content.books[0]
 
   return (
-    <a href={`/books/${content.list_name_encoded}`} className={styles.category_card}>
+    <a href={`/category/${content.list_name_encoded}`} className={styles.category_card}>
       <img
         src={top_book.book_image}
         className={styles.hero}
