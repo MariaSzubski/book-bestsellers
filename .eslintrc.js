@@ -26,7 +26,7 @@ module.exports = {
   plugins: ["jsx-a11y", "react", "sort-keys-fix"],
   rules: {
     camelcase: 0,
-    "comma-dangle": 1,
+    "comma-dangle": 0,
     "import/no-unresolved": 0,
     "react/no-unescaped-entities": 0,
     "react/prop-types": 0,
@@ -47,4 +47,4 @@ module.exports = {
       version: "detect",
     },
   },
-};
+}

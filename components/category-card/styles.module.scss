@@ -1,0 +1,35 @@
+.category_card {
+  display: flex;
+  align-items: center;
+  border: 1px solid #0005;
+  border-radius: 0.8rem;
+  background: rgb(225, 225, 225);
+  padding: 0.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: 0.1s ease-in-out;
+
+  &:hover {
+    transform: scale(1.03);
+    z-index: 100;
+  }
+}
+
+.hero {
+  width: 5rem;
+  height: 7rem;
+  object-fit: cover;
+  margin-right: 1rem;
+  border-radius: 0.4rem;
+}
+
+// .bg_image {
+//   width: 100%;
+//   display: block;
+//   object-fit: cover;
+//   border-radius: 0.4rem;
+//   position: absolute;
+//   z-index: -1;
+//   opacity: 0.3;
+//   filter: blur(8px);
+// }

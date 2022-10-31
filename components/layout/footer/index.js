@@ -1,18 +1,31 @@
 import styles from "./styles.module.scss"
-const Footer = () => (
+const Footer = ({ copyright }) => (
   <footer className={styles.footer}>
     <div>
       <small>
-        Site &copy; 2022{" "}
-        <a href="https://mariaszubski.com" target="_blank">
+        Site: Copyright &copy; {new Date().getFullYear()}{" "}
+        <a href="https://mariaszubski.com" target="_blank" rel="noreferrer">
           Maria Szubski Digital, LLC
         </a>
       </small>
     </div>
-    <div>
-      {" "}
-      <small>NYT Data Copyright TO BE ADDED</small>
-    </div>
+    {copyright && (
+      <div>
+        <small>
+          Data:{" "}
+          <span
+            dangerouslySetInnerHTML={{
+              __html: copyright
+                .replace("(c)", "&copy;")
+                .replace(
+                  "The New York Times Company",
+                  '<a href="https://developer.nytimes.com/" target="_blank" rel="nofererrer">The New York Times Company</a>'
+                ),
+            }}
+          />
+        </small>
+      </div>
+    )}
   </footer>
 )
 
