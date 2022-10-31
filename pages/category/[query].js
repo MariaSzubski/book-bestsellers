@@ -1,4 +1,6 @@
+import BookCard from "../../components/book-card"
 import Layout from "../../components/layout"
+
 import { api } from "../../utilities"
 
 const Category = ({ copyright, results }) => (
@@ -11,15 +13,7 @@ const Category = ({ copyright, results }) => (
     Grid View || List View
     <ol>
       {results.books.map(book => (
-        <li key={book.book_uri}>
-          <img src={book.book_image} alt={book.book_title} />
-          <div>
-            <strong>{book.title}</strong> <em>{book.contributor}</em>
-            <p>Change since last week: {book.rank_last_week}</p>
-            <small>Publisher: {book.publisher}</small>
-            <p>{book.description}</p>
-          </div>
-        </li>
+        <BookCard key={book.book_uri} {...book} />
       ))}
     </ol>
   </Layout>
