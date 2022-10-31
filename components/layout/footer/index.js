@@ -9,21 +9,23 @@ const Footer = ({ copyright }) => (
         </a>
       </small>
     </div>
-    <div>
-      <small>
-        Data:{" "}
-        <span
-          dangerouslySetInnerHTML={{
-            __html: copyright
-              .replace("(c)", "&copy;")
-              .replace(
-                "The New York Times Company",
-                '<a href="https://developer.nytimes.com/" target="_blank" rel="nofererrer">The New York Times Company</a>'
-              ),
-          }}
-        />
-      </small>
-    </div>
+    {copyright && (
+      <div>
+        <small>
+          Data:{" "}
+          <span
+            dangerouslySetInnerHTML={{
+              __html: copyright
+                .replace("(c)", "&copy;")
+                .replace(
+                  "The New York Times Company",
+                  '<a href="https://developer.nytimes.com/" target="_blank" rel="nofererrer">The New York Times Company</a>'
+                ),
+            }}
+          />
+        </small>
+      </div>
+    )}
   </footer>
 )
 
